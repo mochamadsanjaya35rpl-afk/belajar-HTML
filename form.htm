@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>praktek form</title>
+    </head>
+    <body>
+        <h1>Form Pendaftaran SPMB</h1>
+        <form>
+            <table>
+                <tr>
+                    <td><label>Nama Lengkap</label></td>
+                    <td>:</td>
+                    <td><input type="text" required placeholder="Masukkan nama lengkap"></td>
+                </tr>
+                <tr>
+                    <td><label>NIK</label></td>
+                    <td>:</td>
+                    <td><input type="number" required placeholder="Masukkan NIK"></td>
+                </tr>
+                <tr>
+                    <td><label>Tanggal Lahir</label></td>
+                    <td>:</td>
+                    <td><input type="date" required></td>
+                </tr>
+                <tr>
+                    <td>Email</td>
+                    <td>:</td>
+                    <td><input type="email" required placeholder="Masukkan email"></td>
+                </tr>
+                <tr>
+                    <td>Password</td>
+                    <td>:</td>
+                    <td><input type="password" required></td>
+                </tr>
+                <tr>
+                    <td>alamat</td>
+                    <td>:</td>
+                    <td><textarea name="alamat" placeholder="massukkan alamat"></textarea></td>
+                </tr>
+                <tr>
+                    <td>Jenis Kelamin</td>
+                    <td>:</td>
+                    <td><input type="radio" name="jenis kelamin">laki-laki
+                    <input type="radio" name="jenis kelamin">perempuan
+                    </td>
+                </tr>
+                <tr>
+                    <td>mata pelajaran yang disukai</td>
+                    <td>:</td>
+                    <td>
+                    <input type="checkbox" name="mapel">BIND
+                    <input type="checkbox" name="mapel">IPAS
+                    <input type="checkbox" name="mapel">MAT
+                    <input type="checkbox" name="mapel">BING
+                    </td>
+                </tr>
+                <tr>
+                    <td>Jurusan</td>
+                    <td>:</td>
+                    <td><select name="jurusan">
+                    <option value="RPL">RPL</option>
+                    <option value="TKJ">TKJ</option>
+                    <option value="PG">PG</option>
+                    </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label>upload foto</label></td>
+                    <td><input type="file"></td>
+                </tr>
+                <tr>
+                    <td><button type="submit">submit</button></td>
+                    <td><button type="reset">reset</button></td>
+                </tr>
+            </table>
+        </form>        
+    </body>
+</html>
