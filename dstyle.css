@@ -1,0 +1,12 @@
+p {
+    font-family: 'Times New Roman', Times, serif;
+    color: #333
+}
+.highlight {
+    background-color: yellow;
+    font-weight: bold;
+}
+#judulutama{
+    color: darkblue;
+    text-align: center;
+}
