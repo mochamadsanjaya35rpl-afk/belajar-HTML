@@ -1,0 +1,26 @@
+body{
+    background-color: aliceblue;
+}
+h1,h2,h3{
+    color: blue;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bold;
+    text-align: center;
+}
+tr > td{
+    color: rgba(1, 1, 1, 0.926);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center;
+}
+nav a{
+    color: cadetblue;
+}
+a:hover{
+    color: bisque;
+}
+button{
+    color:rgb(0, 120, 0)
+}
+button:hover{
+    color:chartreuse
+}
