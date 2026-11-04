@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Praktikum 2</title>
+    <style>
+        body {font-family: Arial, Helvetica, sans-serif; text-align: center; margin-top: 50px;}
+        #angka {font-size: 64px;}
+        button {font-size: 20px; padding: 10px 20px; margin: 5px;}
+    </style>
+</head>
+<body>
+    <h2>Counter</h2>
+    <div id="angka">0</div>
+    <button id="tambah">+ Tambah</button>
+    <button id="kurang">- Kurang</button>
+    <button id="reset">Reset</button>
+
+    <script>
+        // Mengapa hitung memakai let, bukan const?//
+        // karena variabel yang dipakai akan berubah ubah yang dimana tipe let adalah tipe yang bisa melakukan hal tsb//
+        let hitung = 0;
+        const angka = document.getElementById('angka');
+
+         function updateAngka() {
+            if (hitung > 0) {
+                angka.style.color = "green";
+            } else if (hitung < 0) {
+                angka.style.color = "red";
+            } else {
+                angka.style.color = "black";
+            }
+        }
+
+        document.getElementById('tambah').addEventListener('click', () => {
+            hitung = hitung + 1;
+            angka.textContent = hitung
+            updateAngka()
+        });
+
+        document.getElementById('kurang').addEventListener('click', () => {
+            hitung = hitung - 1;
+            angka.textContent = hitung;
+            updateAngka()
+        });
+
+        document.getElementById('reset').addEventListener('click', () => {
+            hitung = 0;
+            angka.textContent = hitung;
+            updateAngka()
+        });
+        //2. Apa yang terjadi jika baris angka.textContent = hitung; dihapus?//
+        //Angka yang ditampilkan pada halaman web tidak akan diperbarui meskipun nilai variabel hitung berubah.//
+    </script>
+</body>
+</html>
