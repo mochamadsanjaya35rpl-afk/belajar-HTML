@@ -40,8 +40,10 @@
         });
 
         document.getElementById('kurang').addEventListener('click', () => {
+            if (hitung > 0) {
             hitung = hitung - 1;
             angka.textContent = hitung;
+            }
             updateAngka()
         });
 
