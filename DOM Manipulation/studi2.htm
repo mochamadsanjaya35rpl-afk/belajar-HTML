@@ -1,0 +1,99 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daftar Tugas</title>
+    <style>
+        body{font-family: Arial, Helvetica, sans-serif; max-width: 420px; margin: 40px auto;}
+        li{margin: 8px 0; cursor: pointer;}
+        li.selesai{text-decoration: line-through; color: gray;}
+        li button{ margin-left: 10px; }
+    </style>
+</head>
+<body>
+    <H1>to-do list</H1>
+    <input type="text" id="tugas" placeholder="Tulis tugas...">
+    <button id="btntambah">Tambah</button>
+    <button id="btnhapussemua">Hapus semua tugas</button>
+
+    <p>Tugas belum selesai: <b id="jumlah">0</b></p>
+    <ul id="daftar"></ul>
+
+    <script>
+        const tugas = document.getElementById('tugas');
+        const btntambah = document.getElementById('btntambah');
+        const daftar = document.getElementById('daftar');
+        const jumlah = document.getElementById('jumlah');
+        const btnhapussemua = document.getElementById('btnhapussemua');
+
+        function hitungTugas() {
+            const semua = document.querySelectorAll('#daftar li');
+            const selesai = document.querySelectorAll('#daftar li.selesai');
+
+            jumlah.textContent = semua.length - selesai.length;
+        }
+
+        function tambahTugas() {
+            if (tugas.value.trim() === '') {
+                alert('Tugas tidak boleh kosong!');
+                return;
+            }
+
+            const li = document.createElement('li');
+            const teks = document.createElement('span');
+
+            teks.textContent = tugas.value;
+
+            teks.addEventListener('click', () => {
+                li.classList.toggle('selesai');
+                hitungTugas();
+            });
+
+
+            const btnhapus = document.createElement('button');
+            btnhapus.textContent = 'Hapus';
+
+            btnhapus.addEventListener('click', () => {
+                li.remove();
+                hitungTugas();
+            });
+
+            li.appendChild(teks);
+            li.appendChild(btnhapus);
+            daftar.appendChild(li);
+
+            tugas.value = '';
+            hitungTugas();
+        }
+
+        btntambah.addEventListener('click', tambahTugas);
+
+        tugas.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter') {
+                tambahTugas();
+            }
+        });
+
+        // Tombol hapus semua
+        btnhapussemua.addEventListener('click', () => {
+            const selesai = document.querySelectorAll('#daftar li.selesai');
+
+            selesai.forEach((li) => {
+                li.remove();
+            });
+
+            hitungTugas();
+        });
+
+//1. Mengapa kita membuat fungsi hitungTugas() terpisah?
+//2. Apa gunanya trim() pada pengecekan input kosong?
+//3. Apa yang terjadi jika pengguna menekan Enter di kolom input?
+
+//1. Agar proses menghitung jumlah tugas belum selesai bisa digunakan berulang kali tanpa harus menulis kode yang sama. Fungsi ini dipanggil ketika tugas ditambahkan, dihapus, atau ditandai selesai.
+//2. digunakan untuk menghapus spasi di awal dan akhir teks. Dengan begitu, pengguna tidak bisa memasukkan tugas yang hanya berisi spasi karena akan dianggap kosong.
+//3. JavaScript akan mendeteksi tombol Enter melalui event keydown. Jika tombol yang ditekan adalah Enter, fungsi tambahTugas() akan dijalankan sehingga tugas langsung ditambahkan tanpa harus mengeklik tombol Tambah.
+    </script>
+</body>
+</html>
